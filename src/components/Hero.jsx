@@ -123,18 +123,26 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
-            <div ref={ctaRef} className="flex flex-wrap items-center gap-4 sm:gap-5 mb-14">
+            <div ref={ctaRef} className="flex flex-wrap items-center gap-3 sm:gap-4 mb-14">
               <button
-                onClick={() => scrollTo('#work')}
-                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-semibold tracking-wide uppercase text-black bg-white hover:bg-zinc-200 transition-all duration-300 shadow-xl shadow-white/10 hover:shadow-white/25 hover:-translate-y-0.5"
+                onClick={() => scrollTo('#services')}
+                className="group relative inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full text-sm font-semibold tracking-wide uppercase text-black bg-white hover:bg-zinc-200 transition-all duration-300 shadow-xl shadow-white/10 hover:shadow-white/25 hover:-translate-y-0.5"
               >
-                <span>Explore Our Work</span>
+                <span>Explore Services</span>
                 <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
 
               <button
+                onClick={() => scrollTo('#work')}
+                className="group inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-medium tracking-wide text-zinc-300 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm hover:-translate-y-0.5"
+              >
+                <span>Selected Work</span>
+                <ArrowDownRight className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
+              </button>
+
+              <button
                 onClick={() => scrollTo('#contact')}
-                className="group inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-medium tracking-wide text-zinc-300 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm hover:-translate-y-0.5"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full text-sm font-medium tracking-wide text-zinc-300 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-sm hover:-translate-y-0.5"
               >
                 <span>Start a Project</span>
                 <ArrowDownRight className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
@@ -245,8 +253,11 @@ export default function Hero() {
       </div>
 
       {/* Bottom subtle scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none opacity-60">
-        <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400">Scroll Down</span>
+      <div
+        onClick={() => scrollTo('#services')}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity"
+      >
+        <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-400">Scroll to Services</span>
         <div className="w-5 h-8 rounded-full border border-white/20 flex items-start justify-center p-1">
           <div className="w-1 h-2 bg-white rounded-full animate-bounce" />
         </div>

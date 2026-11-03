@@ -40,17 +40,22 @@ export default function Work({ onSelectProjectCategory }) {
 
     const ctx = gsap.context(() => {
       gsap.utils.toArray('.project-item').forEach((item) => {
-        gsap.from(item, {
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-          },
-          y: 50,
-          opacity: 0,
-          duration: 0.9,
-          ease: 'power3.out'
-        });
+        gsap.fromTo(
+          item,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: 'power2.out',
+            clearProps: 'opacity,transform',
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
       });
     }, sectionRef);
 

@@ -34,18 +34,23 @@ export default function Services({ onSelectService }) {
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      gsap.from('.service-card', {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-          toggleActions: 'play none none none',
-        },
-        y: 60,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power3.out'
-      });
+      gsap.fromTo(
+        '.service-card',
+        { opacity: 0, y: 35 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: 'power2.out',
+          clearProps: 'opacity,transform',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -62,7 +67,7 @@ export default function Services({ onSelectService }) {
   };
 
   return (
-    <section id="services" ref={sectionRef} className="relative py-28 lg:py-36 bg-dark-950 text-white overflow-hidden">
+    <section id="services" ref={sectionRef} className="relative py-28 lg:py-36 bg-dark-950 text-white overflow-hidden scroll-mt-20">
       {/* Background accents */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-[140px] pointer-events-none" />
